@@ -11,14 +11,17 @@ const Products = () => {
   const [responseImage, setResponseImage] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
-
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [color, setColor] = useState('')
+  
+const [isOpen, setIsOpen] = useState(false)
 
 
   const handleFileUpload = async(e) => {
     e.preventDefault();
     const url = "http://localhost:4000/api/laptops/product";
     const formData = new FormData();
-    formData.append('image', selectedFile);
+    formData.append('image', selectedImage);
     formData.append('name', name);
     formData.append('color', selectedColor);
     formData.append('price', price);
@@ -44,31 +47,87 @@ const Products = () => {
   };
 
   const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]);
+    const file = e.target.files[0];
+    setSelectedImage(e.target.files[0]);
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      setSelectedFile(reader.result);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleColorChange = (color) => {
     console.log('Selected color:', color);
     setSelectedColor(color.hex);
   };
+  const handlebuttoncolor = (e) => {
+    e.preventDefault();
+if(isOpen){
+  setIsOpen(false)
+}else{
+  setIsOpen(true)
+}
+  }
+  const handlebuttondone = (e) => {
+    e.preventDefault();
+setColor(selectedColor);
+if(isOpen){
+  setIsOpen(false)
+}else{
+  setIsOpen(true)
+}
+  }
 
   return (
-    <div>
+    <div className='create-product'>
+      <div className="left-section-create-product">
+      <h1>Create New Product</h1>
       <form encType="multipart/form-data">
+        <div className="left-form">
+
+        </div>
+        <label className='label-text'>
+          Product Name:
+        </label>
         <input type='text' placeholder='enter Product name' onChange={handleNameChange} />
+        <label className='label-text'>
+          Product Price:
+        </label>
         <input type='number' placeholder='enter product price' onChange={handlePriceChange} />
-        <input type='file' onChange={handleFileChange} />
+         
+        <input type='file'  className='file-input' id='file' onChange={handleFileChange} />
+        {/* {selectedFile && <img style={{ width: "300px" , marginBottom: "1rem"}} src={selectedFile} alt="Selected" />} */}
+        {color ? (<button style={{ backgroundColor: color, color: "white" }} onClick={handlebuttoncolor}>{color}</button>) : (<button style={{  backgroundColor: "blue", color:"white" }} onClick={handlebuttoncolor}> select color</button>)}
+        {isOpen ? (<div className='color-picker-container'>
+
+        <div className='colorpicker-sec'>
         <ColorPicker onChange={handleColorChange} />
+          <button onClick={handlebuttondone}>done</button>
+        </div>
+          
+          
+        </div>) : (<>
+        
+        </>)}
+        
         <button onClick={handleFileUpload}>submit</button>
       </form>
-
-      <h1>{name}</h1>
-      <p>file name: {selectedFile ? selectedFile.name : 'none'}</p>
-      <h1 >{selectedColor}</h1>
-      <div> </div>
-      <h1 >{responseData}</h1>
-      <img alt="" src={`http://localhost:4000${responseImage}`} style={{ width: '600px' }}/>
-    </div>
+      </div>
+      <div className="right-section-create-producct">
+      <img alt=""
+      //  src={`http://localhost:4000${responseImage}`}
+       src={selectedFile}
+       style={{ width: '420px' }}/>
+       <label for="file" className='upload-btn'>
+         {selectedFile ? `${ selectedImage.name}` : " select an image"}
+        </label> 
+    
+      </div>
+     </div>
   );
 };
 
@@ -84,9 +143,9 @@ const ColorPicker = (props) => {
   };
 
   return (
-    <div>
+    <div className='color-picker-sec'>
       <ChromePicker color={color} onChange={handleColorChange} />
-      <div style={{ backgroundColor: color, width: '100px', height: '100px' }}></div>
+      <div style={{ backgroundColor: color, width: '100px', height: '260px' }}></div>
     </div>
   );
 };
