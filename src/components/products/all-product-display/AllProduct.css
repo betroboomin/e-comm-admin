@@ -1,0 +1,93 @@
+.allproducts{
+    width: 100%;
+    height: 100%;
+    /* background-color: red;    */
+    
+}
+.prod-heading{
+    font-size: 1.3rem;
+    color: #353535;
+}
+.all-prod-sec{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    flex-direction: column;
+    padding:1rem ;
+    border-radius: 8px;
+    background-color:#f1f1f1;
+    
+}
+.all-prod-row{
+    width: 100%;
+    display: grid;
+    grid-template-columns: .2fr 1fr 1fr 1fr 1fr ;
+    /* border: 2px solid black; */
+    box-sizing: border-box;
+    /* background-color: red; */
+}
+.prod-sn{
+    width: 100%;
+    /* background-color: blue; */
+    background-color: blue;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.prod-name{
+    width: 100%;
+    padding-left: 1rem;
+    box-sizing: border-box;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.prod-btns{
+    gap: 1rem;
+}
+.prod-btns .edit {
+    background-color: rgb(25, 151, 151);
+    border: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: .2rem 1rem;
+    color: white;
+    border-radius: 8px;
+}
+.prod-btns .delete {
+    background-color: crimson;
+    border: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: .2rem 1rem;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.is-open{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000c7;
+}
+.is-open-center{
+    width: 400px;
+    height: 200px;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-direction: column;
+}
+.is-open-center button{
+    cursor: pointer;
+}

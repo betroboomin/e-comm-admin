@@ -21,3 +21,11 @@ export const getProduct = async (url) => {
         throw error;
     }
 }
+export const deleteProduct = async (url) => {
+    try {
+        const response = await Instance.delete(url)
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+}

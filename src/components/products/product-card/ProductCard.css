@@ -12,6 +12,7 @@
     justify-content: center;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.151);
     flex-direction: column;
+    
 }
 .upload-card{
     border: 2px rgb(99, 99, 99);
@@ -29,6 +30,11 @@
     justify-content: center;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.151);
     flex-direction: column;
+    cursor: pointer;
+}
+.productcard:hover{
+    cursor: pointer;
+
 }
 .product-card-image{
     height: 88%;
