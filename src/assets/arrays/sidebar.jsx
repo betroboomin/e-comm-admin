@@ -14,7 +14,7 @@ const sidebar = [
                 {
                 name: "Dashboard",
                 icon:<DashboardIcon width="25px" height="25px"/>,
-                link: "/dashboard"
+                link: "/"
             },
                 {
                 name: "Product",

@@ -75,11 +75,7 @@ if(isOpen){
   const handlebuttondone = (e) => {
     e.preventDefault();
 setColor(selectedColor);
-if(isOpen){
-  setIsOpen(false)
-}else{
-  setIsOpen(true)
-}
+setIsOpen(!isOpen)
   }
 
   return (
@@ -131,7 +127,7 @@ if(isOpen){
   );
 };
 
-const ColorPicker = (props) => {
+export const ColorPicker = (props) => {
   const { onChange } = props;
   const [color, setColor] = useState('#000000');
 

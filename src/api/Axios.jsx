@@ -13,6 +13,14 @@ export const createProduct = async (url,data) => {
         throw error;
     }
 }
+export const updateProduct = async (url,data) => {
+    try {
+        const response = await Instance.put(url,data)
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+}
 export const getProduct = async (url) => {
     try {
         const response = await Instance.get(url)

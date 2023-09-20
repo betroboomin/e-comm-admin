@@ -55,9 +55,12 @@
     font-weight: 600;
     padding: .2rem 1rem;
     color: white;
-    border-radius: 8px;
+    cursor: pointer;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 .prod-btns .delete {
+    cursor: pointer;
     background-color: crimson;
     border: 0;
     font-size: 1.2rem;
@@ -65,10 +68,12 @@
     padding: .2rem 1rem;
     color: white;
     cursor: pointer;
-    border-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 .is-open{
-    position: absolute;
+    position: fixed;
+    transition: position .3s ease;
     top: 0;
     left: 0;
     width: 100%;
