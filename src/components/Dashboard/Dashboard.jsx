@@ -7,6 +7,8 @@ import Chartbox from "../charts/chartbox/Chartbox";
 import Example from "../charts/pieChart/PieChart";
 import { chartboxuser, chartboxConversion, chartboxProduct, chartboxRevenue, chartboxVisit, chartboxProfit } from "../../assets/arrays/sidebar";
 import BarCharts from "../charts/barcharts/BarCharts";
+import DualGraph from "../charts/dualGraphs/DualGraph";
+import PieCharts from "../charts/pieChart/PieChart";
 
 const Dashboard = () => {
   const array = [
@@ -87,6 +89,7 @@ const Dashboard = () => {
            
           </div>
         </Link>
+        {/* when linking, try to connect the arrays to the database and not replace the code */}
         <Link to="/" className="dashboard-card listing box2 ">
           {
             chartboxuser.map((item)=>(
@@ -103,11 +106,7 @@ const Dashboard = () => {
           }
         </Link>
         <Link to="/" className="dashboard-card listing box4">
-          <div className="box ">
-
-            <span>item-name box4</span> 
-            {/* <Example className="straight-Pie"/> */}
-          </div>
+        <PieCharts />
         </Link>
         <Link to="/" className="dashboard-card listing box5">
         {
@@ -125,9 +124,8 @@ const Dashboard = () => {
         </Link>
 
         <Link to="/" className="dashboard-card listing box7">
-          <div className="box ">
-            <span>item-name box7</span>
-          </div>
+          <span>Heading</span>
+          <DualGraph />
         </Link>
         <Link to="/" className="dashboard-card listing box8">
           <div className="box box81">
