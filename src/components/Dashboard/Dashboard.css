@@ -20,10 +20,15 @@
 .box{
  box-sizing: border-box;
  padding: .5rem;
+ display: flex;
+ height: 100%;
+ width: 100%;
+
 }
 .box1{
  grid-column: span 1;
  grid-row: span 3;
+ flex-direction: column;
 }
 .box4{
  grid-column: span 1;
@@ -66,5 +71,58 @@
     font-weight: 600;
 }
 .user-name-itself{
+    font-weight: 600;
+}
+.boxleft-top-text{
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+.boxleft-top-Total{
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgb(0, 131, 131);
+}
+.boxleft{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.boxright{
+    flex: 3;
+    /* background-color: blue; */
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    text-align: end;
+    
+}
+.charts-sec{
+    padding-top: .6rem;
+}
+.boxright-percentage{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: purple;
+}
+.boxright-duration{
+    font-weight: 600;
+}
+.bg{
+    background-color: blue;
+
+}
+
+.straight-Pie{
+    display: flex;
+    flex-direction: column;
+}
+.box81{
+    flex-direction: column;
+}
+.box81-heading{
+    font-size: 1.1rem;
     font-weight: 600;
 }

@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Dashboard.css"
 import image from "../../assets/images/rileysad.jpg"
+import { Line, LineChart, ResponsiveContainer } from "recharts";
+import Chartbox from "../charts/chartbox/Chartbox";
+import Example from "../charts/pieChart/PieChart";
+import { chartboxuser, chartboxConversion, chartboxProduct, chartboxRevenue, chartboxVisit, chartboxProfit } from "../../assets/arrays/sidebar";
+import BarCharts from "../charts/barcharts/BarCharts";
 
 const Dashboard = () => {
   const array = [
@@ -55,14 +60,15 @@ const Dashboard = () => {
     color:"rgb(180, 0, 156)"
   },
 
-]
+];
+
 
   return (
     <div className="dashboard">
       <div className="dashboard-container">
         <Link to="/" className="dashboard-card box1 listing ">
           <div className="box box1">
-            <h1 className="box-heading">Users</h1>
+            <h1 className="box-heading">New Users</h1>
             { 
             
               array.slice(0,7).map((item,i)=>(
@@ -82,35 +88,40 @@ const Dashboard = () => {
           </div>
         </Link>
         <Link to="/" className="dashboard-card listing box2 ">
-          <div className="box ">
-            <span>item-name box2</span>
-            <div className="boxleft">
- 
-            </div>
-            <div className="boxright">
-
-            </div>
-          </div>
+          {
+            chartboxuser.map((item)=>(
+              <Chartbox {...item}/>
+            ))
+          }
+         
         </Link>
         <Link to="/" className="dashboard-card listing box3">
-          <div className="box ">
-            <span>item-name box3</span>
-          </div>
+        {
+            chartboxRevenue.map((item)=>(
+              <Chartbox {...item}/>
+            ))
+          }
         </Link>
         <Link to="/" className="dashboard-card listing box4">
           <div className="box ">
-            <span>item-name box4</span> <br />
+
+            <span>item-name box4</span> 
+            {/* <Example className="straight-Pie"/> */}
           </div>
         </Link>
         <Link to="/" className="dashboard-card listing box5">
-          <div className="box ">
-            <span>item-name box5</span>
-          </div>
+        {
+            chartboxProduct.map((item)=>(
+              <Chartbox {...item}/>
+            ))
+          }
         </Link>
         <Link to="/" className="dashboard-card listing box6">
-          <div className="box ">
-            <span>item-name box6</span>
-          </div>
+        {
+            chartboxConversion.map((item)=>(
+              <Chartbox {...item}/>
+            ))
+          }
         </Link>
 
         <Link to="/" className="dashboard-card listing box7">
@@ -119,13 +130,21 @@ const Dashboard = () => {
           </div>
         </Link>
         <Link to="/" className="dashboard-card listing box8">
-          <div className="box ">
-            <span>item-name box8</span>
+          <div className="box box81">
+          {
+            chartboxVisit.map((item)=>(
+              <BarCharts {...item}/>
+            ))
+          }
           </div>
         </Link>
         <Link to="/" className="dashboard-card listing box9">
-          <div className="box ">
-            <span>item-name box9</span>
+          <div className="box box81">
+          {
+            chartboxProfit.map((item)=>(
+              <BarCharts {...item}/>
+            ))
+          }
           </div>
         </Link>
       </div>
